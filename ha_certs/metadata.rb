@@ -5,5 +5,3 @@ license 'all_rights'
 description 'Installs/Configures ha_certs'
 long_description 'Installs/Configures ha_certs'
 version '0.1.0'
-
-depends 'aws'
