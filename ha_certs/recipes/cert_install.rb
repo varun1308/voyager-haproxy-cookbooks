@@ -21,7 +21,7 @@ ruby_block "download #{node["cert_install"]['local_file']}" do
     s3 = AWS::S3.new
 
     myfile = s3.buckets["#{node['cert_install']['bucket']}"].objects["#{node['cert_install']['remote_path']}"]
-    Dir.chdir("#{node['cert_install']['local_dir']}")
+    Dir.chdir("/tmp")
     File.open("#{node['cert_install']['remote_path']}", "w") do |f|
       f.syswrite(myfile.read)
       f.close
@@ -43,11 +43,11 @@ end
 # end
 
 execute "unzip #{node["cert_install"]['local_file']}" do
-    command "unzip #{node["cert_install"]['local_file']}"
-    cwd node["cert_install"]['local_dir']
+    command "unzip #{node["cert_install"]['local_file']} -d #{node["cert_install"]['local_dir']}"
+    cwd '/tmp'
 end
 
-execute "rm #{node["cert_install"]['local_file']}" do
-    command "rm #{node["cert_install"]['local_file']}"
-    cwd node["cert_install"]['local_dir']
-end
+# execute "rm #{node["cert_install"]['local_file']}" do
+#     command "rm #{node["cert_install"]['local_file']}"
+#     cwd node["cert_install"]['local_dir']
+# end
