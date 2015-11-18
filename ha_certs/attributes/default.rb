@@ -1,0 +1,5 @@
+default['cert_install']['local_dir'] = '/home/crt_dir/'
+default['cert_install']['local_file'] = 'certs.zip'
+default['cert_install']['remote_path'] = 'certs.zip'
+default['cert_install']['bucket'] = nil #'varun-iis-cookbook'
+default['cert_install']['s3_url'] = nil #'https://s3-us-west-2.amazonaws.com/varun-iis-cookbook/'
