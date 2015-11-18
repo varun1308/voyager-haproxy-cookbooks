@@ -6,6 +6,7 @@
 
 Chef::Log.level = :debug
 
+require 'aws-sdk'
 include_recipe 'aws'
 Aws.use_bundled_cert!
 
