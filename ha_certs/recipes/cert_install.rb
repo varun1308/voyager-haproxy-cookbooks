@@ -7,6 +7,7 @@
 Chef::Log.level = :debug
 
 include_recipe 'aws'
+Aws.use_bundled_cert!
 
 execute "rm #{node["cert_install"]['local_dir']}" do
     command "rm -rf #{node["cert_install"]['local_dir']}"
